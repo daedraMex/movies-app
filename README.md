@@ -6,7 +6,7 @@ status: In progress
 
 last update: 28 may 2025
 
-***
+---
 
 ## System requirements
 
@@ -22,3 +22,18 @@ npm --version
 ```
 
 ## Setup
+
+## Commands
+
+- Start the development server
+
+```shell
+npx expo start
+```
+
+- Used to install a new librart or validate and update
+  specific libraries in our proyect by adding --fix option to this command
+
+```shell
+    npx expo install package-name
+```
