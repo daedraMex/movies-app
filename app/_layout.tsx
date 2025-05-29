@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Text, View } from 'react-native';
 
+import { nowPlayingAction } from "@/core/actions/now-playing.action";
 
 import { useFonts } from "expo-font";
 
@@ -20,7 +21,11 @@ const RootLayout = () => {
 
   if (!fontsLoaded && !error) return null;
 
-
+    nowPlayingAction()
+    .then((response) => {
+      console.log(response);
+    })
+  
   return (
     <View className="flex-1 items-center justify-center  bg-cyan-500">
       <Text className="text-white " style={{fontFamily: "WorkSans-Black"}}>Hola</Text>
