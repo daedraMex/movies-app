@@ -1,6 +1,6 @@
 
-import { MovieDBMoviesResponse } from '@/infrestructure/interfaces/movie-api-response';
-import { MovieMapper } from '@/infrestructure/mappers/movie.mappers';
+import { MovieDBMoviesResponse } from '@/infrastructure/interfaces/movie-api-response';
+import { MovieMapper } from '@/infrastructure/mappers/movie.mappers';
 import { axiosInstance } from '../api/movie-api';
 
 export const nowPlayingAction = async () => {

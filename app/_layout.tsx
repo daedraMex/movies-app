@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
-import { Text, View } from 'react-native';
 
-import { nowPlayingAction } from "@/core/actions/now-playing.action";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Stack } from 'expo-router';
 
+//actions
+
+
+//hooks
 import { useFonts } from "expo-font";
-
-
-import "./../global.css";
+import "../global.css";
 
 const RootLayout = () => {
    const [fontsLoaded, error] = useFonts({
@@ -21,15 +23,23 @@ const RootLayout = () => {
 
   if (!fontsLoaded && !error) return null;
 
-    nowPlayingAction()
-    .then((response) => {
-      console.log(response);
-    })
+    
+  const queryClient = new QueryClient();
   
+
   return (
-    <View className="flex-1 items-center justify-center  bg-cyan-500">
-      <Text className="text-white " style={{fontFamily: "WorkSans-Black"}}>Hola</Text>
-    </View>
+    <QueryClientProvider client={queryClient}>
+      <Stack screenOptions={{
+        headerShown: false,
+        
+      }}/>
+      {/* <View className="flex-1 items-center justify-center ">
+        <Text style={{ fontFamily: "WorkSans-Black", fontSize: 24 }}  className="text-slate-950">
+               Now Playing Movies
+      </Text>
+      </View> */}
+
+    </QueryClientProvider>
   )
 }
 
