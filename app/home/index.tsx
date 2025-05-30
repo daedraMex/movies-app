@@ -5,14 +5,12 @@ import { ActivityIndicator, Text, View } from "react-native";
 
 import MovieHorizontalList from "@/components/movie/MovieHorizontalList";
 import { useMovies } from "@/presentation/hooks/useMovies";
-import { useTopRatedMovies } from "@/presentation/hooks/useTopRated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const HomeScreen = () => {
   const safeArea = useSafeAreaInsets();
 
-  const { nowPlayingData }= useMovies();
-  const { topRatedData} = useTopRatedMovies();
+  const { nowPlayingData, topRatedData, upcomingMovies }= useMovies();
 
   if( nowPlayingData.isLoading){
     return(
@@ -47,17 +45,23 @@ const HomeScreen = () => {
         <MainSlideshow movies={nowPlayingData.data ?? []} />
         {/* TODO:
         - CREATE MoviehorizontalList with FlatList
-        -MovieHorizontalList fot topRated
         - MovieHorizontalList for upcoming
        */}
       </View>
-      <View  className='mt-8 mb-8 ml-0 mr-0'>
+      <View  className='mt-8 mb-8 '>
         <MovieHorizontalList
           title="Top Rated Movies"
           movies={topRatedData.data ?? []}
         />
       </View>
-      
+
+      <View  className='mt-8 mb-8 '>
+        <MovieHorizontalList
+          title="Upcoming Movies"
+          movies={upcomingMovies.data ?? []}
+          
+        />
+      </View>
     </View>
   );
 };
