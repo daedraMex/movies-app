@@ -4,7 +4,7 @@ import Carousel from "react-native-reanimated-carousel";
 
 
 import { Movie } from "@/infrastructure/interfaces/movie";
-import MoviePoster from "./movie/MoviePoster";
+import MoviePoster from "./MoviePoster";
 
 interface MainSlideshowProps {
   movies: Movie[];
