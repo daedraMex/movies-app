@@ -8,6 +8,7 @@ import { Stack } from 'expo-router';
 
 //hooks
 import { useFonts } from "expo-font";
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import "../global.css";
 
 const RootLayout = () => {
@@ -29,10 +30,16 @@ const RootLayout = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
+          <GestureHandlerRootView>
+
       <Stack screenOptions={{
         headerShown: false,
         
       }}/>
+      </GestureHandlerRootView>
+      {/* <View className="flex-1 items-center justify-center ">
+        <Text style={{ fontFamily: "WorkSans-Black", fontSize: 24 }}  className="text-slate-950">
+               Now Playing Movies
       {/* <View className="flex-1 items-center justify-center ">
         <Text style={{ fontFamily: "WorkSans-Black", fontSize: 24 }}  className="text-slate-950">
                Now Playing Movies

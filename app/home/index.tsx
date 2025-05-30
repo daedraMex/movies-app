@@ -1,9 +1,10 @@
 import React from "react";
 import { ActivityIndicator, Text, View } from "react-native";
-
-
-import { useMovies } from "@/presentation/hooks/useMovies";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+
+import MainSlideshow from "@/components/MainSlideshow";
+import { useMovies } from "@/presentation/hooks/useMovies";
 
 const HomeScreen = () => {
   const safeArea = useSafeAreaInsets();
@@ -24,11 +25,15 @@ const HomeScreen = () => {
       <Text style={{ fontFamily: "WorkSans-Black" }}  className="text-3xl font-bold px-4 mb-2 text-slate-950">
         Now Playing Movies
       </Text>
-      <Text style={{ fontFamily: "WorkSans-Regular", fontSize: 16 }} className="text-slate-950">
-        {
-          JSON.stringify(nowPlayingData.data)
-        }
-      </Text>
+      <View>
+        <MainSlideshow movies={nowPlayingData.data ?? []} />
+        {/* TODO:
+        - CREATE MoviehorizontalList with FlatList
+        -MovieHorizontalList fot topRated
+        - MovieHorizontalList for upcoming
+       */}
+      </View>
+      
     </View>
   );
 };
