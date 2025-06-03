@@ -9,6 +9,7 @@ interface Props {
   className?: string;
 }
 const MoviePoster = ({ id, poster, smallPoster = false, className }: Props) => {
+ 
   const handlePress = () => {
     console.log("Movie ID:", id);
   };

@@ -6,7 +6,6 @@ export const upcomingAction = async () =>{
         const { data } = await axiosInstance.get('/upcoming');
         return data.results.map(MovieMapper.fromTheMovieDBToMovie);
     } catch (error) {
-        console.error("Error fetching upcoming movies:", error);
         throw error; // Re-throw the error for further handling if needed
     }
 }
